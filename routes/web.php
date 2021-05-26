@@ -17,10 +17,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::get('/',[IndexController::class, 'index']);
 
 Auth::routes();
@@ -33,5 +29,10 @@ Route::group(['prefix'=>'admin','middleware' =>['admin','auth'],'namespace'=>'Ad
 
 Route::group(['prefix'=>'user','middleware' =>['user','auth'],'namespace'=>'User'], function(){
     Route::get('dashboard',[UserController::class,'index'])->name('user.dashboard');
+    Route::post('edit/profile',[UserController::class,'updateData'])->name('edit-profile');
+    Route::get('image/update',[UserController::class,'imageupdate'])->name('image.update');
+    Route::post('update/image/post',[UserController::class,'updatepost'])->name('update.image.post');
+    Route::get('change/passwprd',[UserController::class,'changepasswprd'])->name('change.passwprd');
+    Route::post('password/store',[UserController::class,'passwordstore'])->name('password.store');
 });
 

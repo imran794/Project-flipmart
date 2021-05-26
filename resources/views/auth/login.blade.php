@@ -117,5 +117,7 @@
 <!-- create a new account -->         
   </div><!-- /.row -->
         </div><!-- /.sigin-in-->
+    </div>
+</div>
 
 @endsection
